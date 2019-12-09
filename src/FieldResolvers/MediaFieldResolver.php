@@ -8,6 +8,7 @@ use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\FieldQuery\FieldQueryUtils;
 use PoP\Media\TypeResolvers\MediaTypeResolver;
 use PoP\Media\Misc\MediaHelpers;
+use PoP\Users\TypeDataResolvers\ConvertibleUserTypeDataResolver;
 
 class MediaFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -139,7 +140,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     {
         switch ($fieldName) {
             case 'author':
-                return \PoP\Users\Dataloader_ConvertibleUserList::class;
+                return ConvertibleUserTypeDataResolver::class;
         }
 
         return parent::resolveFieldDefaultTypeDataResolverClass($typeResolver, $fieldName, $fieldArgs);
