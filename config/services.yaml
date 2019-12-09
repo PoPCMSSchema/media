@@ -1,0 +1,4 @@
+services:
+    PoP\Media\FieldResolvers\:
+        resource: '../src/FieldResolvers/*'
+        public: true
