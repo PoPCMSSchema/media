@@ -4,7 +4,6 @@ namespace PoP\Media;
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
-use PoP\Media\Conditional\Posts\ComponentBoot;
 
 /**
  * Initialize component
@@ -34,10 +33,5 @@ class Component extends AbstractComponent
 
         // Initialize classes
         ContainerBuilderUtils::attachFieldResolversFromNamespace(__NAMESPACE__.'\\FieldResolvers');
-
-        // Initialize all conditional clases
-        if (class_exists('\PoP\Posts\Component')) {
-            ComponentBoot::boot();
-        }
     }
 }
