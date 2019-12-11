@@ -2,7 +2,7 @@
 namespace PoP\Media\TypeResolvers;
 
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
-use PoP\Media\TypeDataResolvers\MediaTypeDataResolver;
+use PoP\Media\TypeDataLoaders\MediaTypeDataLoader;
 
 class MediaTypeResolver extends AbstractTypeResolver
 {
@@ -20,9 +20,9 @@ class MediaTypeResolver extends AbstractTypeResolver
         return $cmsmediaresolver->getMediaId($media);
     }
 
-    public function getTypeDataResolverClass(): string
+    public function getTypeDataLoaderClass(): string
     {
-        return MediaTypeDataResolver::class;
+        return MediaTypeDataLoader::class;
     }
 }
 
