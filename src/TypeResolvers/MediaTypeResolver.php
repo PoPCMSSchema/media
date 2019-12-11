@@ -6,7 +6,7 @@ use PoP\Media\TypeDataResolvers\MediaTypeDataResolver;
 
 class MediaTypeResolver extends AbstractTypeResolver
 {
-    public const NAME = 'media';
+    public const NAME = 'Media';
 
     public function getTypeName(): string
     {
