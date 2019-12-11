@@ -20,7 +20,7 @@ class MediaTypeResolver extends AbstractTypeResolver
         return $cmsmediaresolver->getMediaId($media);
     }
 
-    public function getIdFieldTypeDataResolverClass(): string
+    public function getTypeDataResolverClass(): string
     {
         return MediaTypeDataResolver::class;
     }

@@ -8,7 +8,7 @@ use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\FieldQuery\FieldQueryUtils;
 use PoP\Media\TypeResolvers\MediaTypeResolver;
 use PoP\Media\Misc\MediaHelpers;
-use PoP\Users\TypeDataResolvers\UserTypeDataResolver;
+use PoP\Users\TypeResolvers\UserTypeResolver;
 
 class MediaFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -136,13 +136,13 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         return parent::getSchemaFieldArgs($typeResolver, $fieldName);
     }
 
-    public function resolveFieldDefaultTypeDataResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
+    public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
     {
         switch ($fieldName) {
             case 'author':
-                return UserTypeDataResolver::class;
+                return UserTypeResolver::class;
         }
 
-        return parent::resolveFieldDefaultTypeDataResolverClass($typeResolver, $fieldName, $fieldArgs);
+        return parent::resolveFieldTypeResolverClass($typeResolver, $fieldName, $fieldArgs);
     }
 }

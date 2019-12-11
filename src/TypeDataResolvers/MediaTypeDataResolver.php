@@ -2,15 +2,9 @@
 namespace PoP\Media\TypeDataResolvers;
 
 use PoP\ComponentModel\TypeDataResolvers\AbstractTypeQueryableDataResolver;
-use PoP\Media\TypeResolvers\MediaTypeResolver;
 
 class MediaTypeDataResolver extends AbstractTypeQueryableDataResolver
 {
-    public function getTypeResolverClass(): string
-    {
-        return MediaTypeResolver::class;
-    }
-
     public function resolveObjectsFromIDs(array $ids): array
     {
         $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
