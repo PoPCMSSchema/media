@@ -5,7 +5,7 @@ use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataResolver;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataResolver
 {
-    public function resolveObjectsFromIDs(array $ids): array
+    public function getObjects(array $ids): array
     {
         $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
         $query = array(
