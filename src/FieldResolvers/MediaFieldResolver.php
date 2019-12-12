@@ -121,12 +121,12 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                 return [
                     [
                         SchemaDefinition::ARGNAME_NAME => 'size',
-                        SchemaDefinition::ARGNAME_NAME => SchemaDefinition::TYPE_STRING,
+                        SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_STRING,
                         SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Size of the image', 'pop-media'),
                     ],
                     [
                         SchemaDefinition::ARGNAME_NAME => 'device',
-                        SchemaDefinition::ARGNAME_NAME => SchemaDefinition::TYPE_ENUM,
+                        SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_ENUM,
                         SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Device where to show the image', 'pop-media'),
                         SchemaDefinition::ARGNAME_ENUMVALUES => $this->getDeviceValues(),
                     ],
