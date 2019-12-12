@@ -1,8 +1,9 @@
 <?php
 namespace PoP\Media\TypeResolvers;
 
-use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
+use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\Media\TypeDataLoaders\MediaTypeDataLoader;
+use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MediaTypeResolver extends AbstractTypeResolver
 {
@@ -11,6 +12,12 @@ class MediaTypeResolver extends AbstractTypeResolver
     public function getTypeName(): string
     {
         return self::NAME;
+    }
+
+    public function getSchemaTypeDescription(): ?string
+    {
+        $translationAPI = TranslationAPIFacade::getInstance();
+        return $translationAPI->__('Media elements (such as images, videos, etc), attached to a post or independent', 'media');
     }
 
     public function getId($resultItem)
