@@ -38,7 +38,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'author' => $translationAPI->__('ID of the media element\'s author', 'pop-media'),
+			'author' => $translationAPI->__('Media element\'s author', 'pop-media'),
             'src' => $translationAPI->__('Media element URL source', 'pop-media'),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
