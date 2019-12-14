@@ -1,9 +1,9 @@
 <?php
 namespace PoP\Media\TypeDataLoaders;
 
-use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataResolver;
+use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
 
-class MediaTypeDataLoader extends AbstractTypeQueryableDataResolver
+class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
     public function getObjects(array $ids): array
     {
