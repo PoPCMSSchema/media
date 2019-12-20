@@ -77,7 +77,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                         }
                     }
                 }
-                $properties = MediaHelpers::getAttachmentImageProperties($typeResolver->getId($media), $size);
+                $properties = MediaHelpers::getAttachmentImageProperties($typeResolver->getID($media), $size);
                 return $properties['src'];
         }
 

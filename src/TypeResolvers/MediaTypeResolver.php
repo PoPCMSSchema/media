@@ -20,7 +20,7 @@ class MediaTypeResolver extends AbstractTypeResolver
         return $translationAPI->__('Media elements (such as images, videos, etc), attached to a post or independent', 'media');
     }
 
-    public function getId($resultItem)
+    public function getID($resultItem)
     {
         $cmsmediaresolver = \PoP\Media\ObjectPropertyResolverFactory::getInstance();
         $media = $resultItem;
