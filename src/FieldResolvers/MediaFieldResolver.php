@@ -43,27 +43,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
-    public function resolveSchemaValidationErrorDescription(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
-    {
-        if (!FieldQueryUtils::isAnyFieldArgumentValueAField($fieldArgs)) {
-            $translationAPI = TranslationAPIFacade::getInstance();
-            switch ($fieldName) {
-                case 'src':
-                    if (isset($fieldArgs['device']) && !in_array(
-                        $fieldArgs['device'],
-                        $this->getDeviceValues()
-                    )) {
-                        return sprintf(
-                            $translationAPI->__('Argument \'device\' can only have these values: \'%s\'', 'pop-media'),
-                            implode($translationAPI->__('\', \''), $this->getDeviceValues())
-                        );
-                    }
-                    break;
-            }
-        }
-
-        return parent::resolveSchemaValidationErrorDescription($typeResolver, $fieldName, $fieldArgs);
-    }
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
