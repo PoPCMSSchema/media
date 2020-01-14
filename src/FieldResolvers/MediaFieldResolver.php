@@ -1,14 +1,15 @@
 <?php
 namespace PoP\Media\FieldResolvers;
 
-use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\ComponentModel\Schema\SchemaDefinition;
-use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
-use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\FieldQuery\FieldQueryUtils;
-use PoP\Media\TypeResolvers\MediaTypeResolver;
 use PoP\Media\Misc\MediaHelpers;
+use PoP\FieldQuery\FieldQueryUtils;
+use PoP\ComponentModel\Schema\SchemaHelpers;
 use PoP\Users\TypeResolvers\UserTypeResolver;
+use PoP\Media\TypeResolvers\MediaTypeResolver;
+use PoP\ComponentModel\Schema\SchemaDefinition;
+use PoP\Translation\Facades\TranslationAPIFacade;
+use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
+use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 
 class MediaFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -107,7 +108,9 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                         SchemaDefinition::ARGNAME_NAME => 'device',
                         SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_ENUM,
                         SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Device where to show the image', 'pop-media'),
-                        SchemaDefinition::ARGNAME_ENUMVALUES => $this->getDeviceValues(),
+                        SchemaDefinition::ARGNAME_ENUMVALUES => SchemaHelpers::convertToSchemaFieldArgEnumValueDefinitions(
+                            $this->getDeviceValues()
+                        ),
                     ],
                 ];
         }
