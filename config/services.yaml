@@ -2,3 +2,7 @@ services:
     PoP\Media\FieldResolvers\:
         resource: '../src/FieldResolvers/*'
         public: true
+
+    PoP\Media\TypeResolvers\:
+        resource: '../src/TypeResolvers/*'
+        public: true
