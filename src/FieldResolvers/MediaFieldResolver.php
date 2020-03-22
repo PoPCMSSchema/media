@@ -95,27 +95,31 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
 
     public function getSchemaFieldArgs(TypeResolverInterface $typeResolver, string $fieldName): array
     {
+        $schemaFieldArgs = parent::getSchemaFieldArgs($typeResolver, $fieldName);
         $translationAPI = TranslationAPIFacade::getInstance();
         switch ($fieldName) {
             case 'src':
-                return [
+                return array_merge(
+                    $schemaFieldArgs,
                     [
-                        SchemaDefinition::ARGNAME_NAME => 'size',
-                        SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_STRING,
-                        SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Size of the image', 'pop-media'),
-                    ],
-                    [
-                        SchemaDefinition::ARGNAME_NAME => 'device',
-                        SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_ENUM,
-                        SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Device where to show the image', 'pop-media'),
-                        SchemaDefinition::ARGNAME_ENUMVALUES => SchemaHelpers::convertToSchemaFieldArgEnumValueDefinitions(
-                            $this->getDeviceValues()
-                        ),
-                    ],
-                ];
+                        [
+                            SchemaDefinition::ARGNAME_NAME => 'size',
+                            SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_STRING,
+                            SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Size of the image', 'pop-media'),
+                        ],
+                        [
+                            SchemaDefinition::ARGNAME_NAME => 'device',
+                            SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_ENUM,
+                            SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Device where to show the image', 'pop-media'),
+                            SchemaDefinition::ARGNAME_ENUMVALUES => SchemaHelpers::convertToSchemaFieldArgEnumValueDefinitions(
+                                $this->getDeviceValues()
+                            ),
+                        ],
+                    ]
+                );
         }
 
-        return parent::getSchemaFieldArgs($typeResolver, $fieldName);
+        return $schemaFieldArgs;
     }
 
     public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
