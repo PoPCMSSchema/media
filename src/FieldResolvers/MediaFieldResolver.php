@@ -2,7 +2,6 @@
 namespace PoP\Media\FieldResolvers;
 
 use PoP\Media\Misc\MediaHelpers;
-use PoP\FieldQuery\FieldQueryUtils;
 use PoP\ComponentModel\Schema\SchemaHelpers;
 use PoP\Users\TypeResolvers\UserTypeResolver;
 use PoP\Media\TypeResolvers\MediaTypeResolver;
@@ -30,7 +29,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     {
         $types = [
 			'author' => SchemaDefinition::TYPE_ID,
-            'src' => SchemaDefinition::TYPE_STRING,
+            'src' => SchemaDefinition::TYPE_URL,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -85,7 +84,8 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);
     }
 
-    protected function getDeviceValues() {
+    protected function getDeviceValues()
+    {
         return [
             'mobile',
             'desktop',
