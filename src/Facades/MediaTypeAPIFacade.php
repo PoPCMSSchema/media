@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace PoP\Media\Facades;
 
 use PoP\Media\TypeAPIs\MediaTypeAPIInterface;
