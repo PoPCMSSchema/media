@@ -32,4 +32,3 @@ class MediaTypeResolver extends AbstractTypeResolver
         return MediaTypeDataLoader::class;
     }
 }
-

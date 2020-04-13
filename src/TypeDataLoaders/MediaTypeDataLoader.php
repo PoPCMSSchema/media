@@ -40,5 +40,3 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
         return (array)$this->executeQuery($query, $options);
     }
 }
-
-
