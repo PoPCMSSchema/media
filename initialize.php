@@ -1,2 +1,2 @@
 <?php
-\PoP\Media\Component::init();
+//\PoP\Media\Component::initialize();
