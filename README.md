@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/media
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\Media\Component::initialize();
 ```
--->
 
 ## Standards
 
