@@ -25,7 +25,9 @@ composer require getpop/media
 Initialize the component:
 
 ``` php
-\PoP\Media\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\Media\Component::class,
+]);
 ```
 
 ## Standards
