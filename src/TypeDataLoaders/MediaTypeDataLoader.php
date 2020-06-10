@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PoP\Media\TypeDataLoaders;
 
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
+// use PoP\Content\Types\Status;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
@@ -22,7 +23,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
         $query = array();
         $query['include'] = $ids;
         // $query['post-status'] = [
-        //     POP_POSTSTATUS_PUBLISHED,
+        //     Status::PUBLISHED,
         // ];
         $query['post-types'] = 'attachment';
 
