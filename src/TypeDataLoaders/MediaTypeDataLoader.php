@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PoP\Media\TypeDataLoaders;
 
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
-// use PoP\Content\Types\Status;
+// use PoP\CustomPosts\Types\Status;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
