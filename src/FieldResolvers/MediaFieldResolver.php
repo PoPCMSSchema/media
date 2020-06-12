@@ -25,6 +25,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         return [
             'author',
             'src',
+            'attributes',
         ];
     }
 
@@ -33,6 +34,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         $types = [
             'author' => SchemaDefinition::TYPE_ID,
             'src' => SchemaDefinition::TYPE_URL,
+            'attributes' => SchemaDefinition::TYPE_OBJECT,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -41,6 +43,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     {
         $nonNullableFieldNames = [
             'src',
+            'attributes',
         ];
         if (in_array($fieldName, $nonNullableFieldNames)) {
             return true;
@@ -54,6 +57,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         $descriptions = [
             'author' => $translationAPI->__('Media element\'s author', 'pop-media'),
             'src' => $translationAPI->__('Media element URL source', 'pop-media'),
+            'attributes' => $translationAPI->__('Attributes (url, width and height) of the image', 'pop-media'),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
@@ -65,6 +69,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         switch ($fieldName) {
             case 'author':
                 return $cmsmediaapi->getMediaAuthorId($media);
+
             case 'src':
                 // To calculate the size, offer the following strategies:
                 // 1. Set it explicitly
@@ -93,6 +98,9 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                 }
                 $properties = MediaHelpers::getAttachmentImageProperties($typeResolver->getID($media), $size);
                 return $properties['src'];
+
+            case 'attributes':
+                return MediaHelpers::getAttachmentImageProperties($typeResolver->getID($media), $fieldArgs['size']);
         }
 
         return parent::resolveValue($typeResolver, $resultItem, $fieldName, $fieldArgs, $variables, $expressions, $options);
@@ -128,6 +136,17 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                             SchemaDefinition::ARGNAME_ENUMVALUES => SchemaHelpers::convertToSchemaFieldArgEnumValueDefinitions(
                                 $this->getDeviceValues()
                             ),
+                        ],
+                    ]
+                );
+            case 'attributes':
+                return array_merge(
+                    $schemaFieldArgs,
+                    [
+                        [
+                            SchemaDefinition::ARGNAME_NAME => 'size',
+                            SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_STRING,
+                            SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Size of the image', 'pop-media'),
                         ],
                     ]
                 );
