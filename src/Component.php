@@ -13,6 +13,8 @@ use PoP\ComponentModel\Container\ContainerBuilderUtils;
  */
 class Component extends AbstractComponent
 {
+    public static $COMPONENT_DIR;
+
     use YAMLServicesTrait;
     // const VERSION = '0.1.0';
 
@@ -31,7 +33,7 @@ class Component extends AbstractComponent
     public static function getDependedConditionalComponentClasses(): array
     {
         return [
-            \PoP\Posts\Component::class,
+            \PoP\Users\Component::class,
         ];
     }
 
@@ -51,7 +53,17 @@ class Component extends AbstractComponent
         array $skipSchemaComponentClasses = []
     ): void {
         parent::doInitialize($configuration, $skipSchema, $skipSchemaComponentClasses);
-        self::maybeInitYAMLSchemaServices(dirname(__DIR__), $skipSchema);
+        self::$COMPONENT_DIR = dirname(__DIR__);
+        self::maybeInitYAMLSchemaServices(self::$COMPONENT_DIR, $skipSchema);
+
+        if (class_exists('\PoP\Users\Component')
+            && !in_array(\PoP\Users\Component::class, $skipSchemaComponentClasses)
+        ) {
+            \PoP\Media\Conditional\Users\ConditionalComponent::initialize(
+                $configuration,
+                $skipSchema
+            );
+        }
     }
 
     /**
@@ -66,5 +78,9 @@ class Component extends AbstractComponent
         // Initialize classes
         ContainerBuilderUtils::registerTypeResolversFromNamespace(__NAMESPACE__ . '\\TypeResolvers');
         ContainerBuilderUtils::attachFieldResolversFromNamespace(__NAMESPACE__ . '\\FieldResolvers');
+
+        if (class_exists('\PoP\Users\Component')) {
+            \PoP\Media\Conditional\Users\ConditionalComponent::beforeBoot();
+        }
     }
 }

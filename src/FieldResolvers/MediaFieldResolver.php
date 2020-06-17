@@ -6,7 +6,6 @@ namespace PoP\Media\FieldResolvers;
 
 use PoP\Media\Misc\MediaHelpers;
 use PoP\ComponentModel\Schema\SchemaHelpers;
-use PoP\Users\TypeResolvers\UserTypeResolver;
 use PoP\Media\TypeResolvers\MediaTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\Translation\Facades\TranslationAPIFacade;
@@ -27,7 +26,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     public static function getFieldNamesToResolve(): array
     {
         return [
-            'author',
             'src',
             'width',
             'height',
@@ -37,7 +35,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-            'author' => SchemaDefinition::TYPE_ID,
             'src' => SchemaDefinition::TYPE_URL,
             'width' => SchemaDefinition::TYPE_INT,
             'height' => SchemaDefinition::TYPE_INT,
@@ -60,7 +57,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-            'author' => $translationAPI->__('Media element\'s author', 'pop-media'),
             'src' => $translationAPI->__('Media element URL source', 'pop-media'),
             'width' => $translationAPI->__('Media element\'s width', 'pop-media'),
             'height' => $translationAPI->__('Media element\'s height', 'pop-media'),
@@ -73,9 +69,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
         $media = $resultItem;
         switch ($fieldName) {
-            case 'author':
-                return $cmsmediaapi->getMediaAuthorId($media);
-
             case 'src':
             case 'width':
             case 'height':
@@ -162,15 +155,5 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
         }
 
         return $schemaFieldArgs;
-    }
-
-    public function resolveFieldTypeResolverClass(TypeResolverInterface $typeResolver, string $fieldName, array $fieldArgs = []): ?string
-    {
-        switch ($fieldName) {
-            case 'author':
-                return UserTypeResolver::class;
-        }
-
-        return parent::resolveFieldTypeResolverClass($typeResolver, $fieldName, $fieldArgs);
     }
 }
