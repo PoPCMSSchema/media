@@ -25,7 +25,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
         // $query['custom-post-status'] = [
         //     Status::PUBLISHED,
         // ];
-        $query['post-types'] = 'attachment';
+        $query['custom-post-types'] = 'attachment';
 
         return $query;
     }
