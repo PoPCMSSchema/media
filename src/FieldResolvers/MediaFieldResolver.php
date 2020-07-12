@@ -14,6 +14,7 @@ use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 
 class MediaFieldResolver extends AbstractDBDataFieldResolver
 {
+    public const ENUM_MEDIA_DEVICES = 'MediaDevices';
     public const ENUM_VALUE_MOBILE = 'mobile';
     public const ENUM_VALUE_DESKTOP = 'desktop';
     public const ENUM_VALUE_AUTOMATIC = 'automatic';
@@ -66,7 +67,6 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
-        $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
         $media = $resultItem;
         switch ($fieldName) {
             case 'src':
@@ -146,6 +146,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
                             SchemaDefinition::ARGNAME_NAME => 'device',
                             SchemaDefinition::ARGNAME_TYPE => SchemaDefinition::TYPE_ENUM,
                             SchemaDefinition::ARGNAME_DESCRIPTION => $translationAPI->__('Device where to show the image', 'pop-media'),
+                            SchemaDefinition::ARGNAME_ENUMNAME => self::ENUM_MEDIA_DEVICES,
                             SchemaDefinition::ARGNAME_ENUMVALUES => SchemaHelpers::convertToSchemaFieldArgEnumValueDefinitions(
                                 $this->getDeviceValues()
                             ),
