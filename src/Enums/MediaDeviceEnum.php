@@ -10,9 +10,9 @@ class MediaDeviceEnum extends AbstractEnum
 {
     public const NAME = 'MediaDevice';
 
-    public const MOBILE = 'mobile';
-    public const DESKTOP = 'desktop';
-    public const AUTOMATIC = 'automatic';
+    public const MOBILE = 'MOBILE';
+    public const DESKTOP = 'DESKTOP';
+    public const AUTOMATIC = 'AUTOMATIC';
 
     protected function getEnumName(): string
     {
