@@ -39,7 +39,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
     public function executeQueryIds($query): array
     {
         $options = [
-            'return-type' => POP_RETURNTYPE_IDS,
+            'return-type' => \POP_RETURNTYPE_IDS,
         ];
         return (array)$this->executeQuery($query, $options);
     }
