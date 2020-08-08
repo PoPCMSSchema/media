@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\Conditional\Users;
+namespace PoPSchema\Media\Conditional\Users;
 
-use PoP\Media\Component;
+use PoPSchema\Media\Component;
 use PoP\Root\Component\YAMLServicesTrait;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 

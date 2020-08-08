@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\TypeResolvers;
+namespace PoPSchema\Media\TypeResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\Media\TypeDataLoaders\MediaTypeDataLoader;
+use PoPSchema\Media\TypeDataLoaders\MediaTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MediaTypeResolver extends AbstractTypeResolver
@@ -25,7 +25,7 @@ class MediaTypeResolver extends AbstractTypeResolver
 
     public function getID($resultItem)
     {
-        $cmsmediaresolver = \PoP\Media\ObjectPropertyResolverFactory::getInstance();
+        $cmsmediaresolver = \PoPSchema\Media\ObjectPropertyResolverFactory::getInstance();
         $media = $resultItem;
         return $cmsmediaresolver->getMediaId($media);
     }

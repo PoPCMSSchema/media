@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\FieldResolvers;
+namespace PoPSchema\Media\FieldResolvers;
 
-use PoP\Media\Misc\MediaHelpers;
-use PoP\Media\Enums\MediaDeviceEnum;
+use PoPSchema\Media\Misc\MediaHelpers;
+use PoPSchema\Media\Enums\MediaDeviceEnum;
 use PoP\ComponentModel\Schema\SchemaHelpers;
-use PoP\Media\TypeResolvers\MediaTypeResolver;
+use PoPSchema\Media\TypeResolvers\MediaTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\TypeDataLoaders;
+namespace PoPSchema\Media\TypeDataLoaders;
 
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
-// use PoP\CustomPosts\Types\Status;
+// use PoPSchema\CustomPosts\Types\Status;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
     public function getObjects(array $ids): array
     {
-        $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
+        $cmsmediaapi = \PoPSchema\Media\FunctionAPIFactory::getInstance();
         $query = array(
             'include' => $ids,
         );
@@ -32,7 +32,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 
     public function executeQuery($query, array $options = [])
     {
-        $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
+        $cmsmediaapi = \PoPSchema\Media\FunctionAPIFactory::getInstance();
         return $cmsmediaapi->getMediaElements($query, $options);
     }
 

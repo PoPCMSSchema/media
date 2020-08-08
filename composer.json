@@ -1,5 +1,5 @@
 {
-    "name": "getpop/media",
+    "name": "pop-schema/media",
     "type": "library",
     "description": "Adds support for media",
     "keywords": [
@@ -20,25 +20,25 @@
     "require": {
         "php": "~7.2",
         "getpop/engine": "dev-master",
-        "getpop/migrate-media": "dev-master"
+        "pop-schema/migrate-media": "dev-master"
     },
     "require-dev": {
-        "getpop/users": "dev-master",
+        "pop-schema/users": "dev-master",
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": ">=8.5",
         "squizlabs/php_codesniffer": "^3.0"
     },
     "suggest": {
-        "getpop/users": "Integration with Users"
+        "pop-schema/users": "Integration with Users"
     },
     "autoload": {
         "psr-4": {
-            "PoP\\Media\\": "src"
+            "PoPSchema\\Media\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\Media\\": "tests"
+            "PoPSchema\\Media\\": "tests"
         }
     },
     "scripts": {

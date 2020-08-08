@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media;
+namespace PoPSchema\Media;
 
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
@@ -33,7 +33,7 @@ class Component extends AbstractComponent
     public static function getDependedConditionalComponentClasses(): array
     {
         return [
-            \PoP\Users\Component::class,
+            \PoPSchema\Users\Component::class,
         ];
     }
 
@@ -56,10 +56,10 @@ class Component extends AbstractComponent
         self::$COMPONENT_DIR = dirname(__DIR__);
         self::maybeInitYAMLSchemaServices(self::$COMPONENT_DIR, $skipSchema);
 
-        if (class_exists('\PoP\Users\Component')
-            && !in_array(\PoP\Users\Component::class, $skipSchemaComponentClasses)
+        if (class_exists('\PoPSchema\Users\Component')
+            && !in_array(\PoPSchema\Users\Component::class, $skipSchemaComponentClasses)
         ) {
-            \PoP\Media\Conditional\Users\ConditionalComponent::initialize(
+            \PoPSchema\Media\Conditional\Users\ConditionalComponent::initialize(
                 $configuration,
                 $skipSchema
             );
@@ -79,8 +79,8 @@ class Component extends AbstractComponent
         ContainerBuilderUtils::registerTypeResolversFromNamespace(__NAMESPACE__ . '\\TypeResolvers');
         ContainerBuilderUtils::attachFieldResolversFromNamespace(__NAMESPACE__ . '\\FieldResolvers');
 
-        if (class_exists('\PoP\Users\Component')) {
-            \PoP\Media\Conditional\Users\ConditionalComponent::beforeBoot();
+        if (class_exists('\PoPSchema\Users\Component')) {
+            \PoPSchema\Media\Conditional\Users\ConditionalComponent::beforeBoot();
         }
     }
 }

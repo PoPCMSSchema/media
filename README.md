@@ -17,7 +17,7 @@ Adds support for media
 Via Composer
 
 ``` bash
-composer require getpop/media
+composer require pop-schema/media
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Initialize the component:
 
 ``` php
 \PoP\Root\ComponentLoader::initializeComponents([
-    \PoP\Media\Component::class,
+    \PoPSchema\Media\Component::class,
 ]);
 ```
 
@@ -75,17 +75,17 @@ If you discover any security related issues, please email leo@getpop.org instead
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/getpop/media.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/pop-schema/media.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/getpop/media/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/getpop/media.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/getpop/media.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/getpop/media.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/pop-schema/media/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/pop-schema/media.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/pop-schema/media.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pop-schema/media.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/getpop/media
-[link-travis]: https://travis-ci.org/getpop/media
-[link-scrutinizer]: https://scrutinizer-ci.com/g/getpop/media/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/getpop/media
-[link-downloads]: https://packagist.org/packages/getpop/media
+[link-packagist]: https://packagist.org/packages/pop-schema/media
+[link-travis]: https://travis-ci.org/pop-schema/media
+[link-scrutinizer]: https://scrutinizer-ci.com/g/pop-schema/media/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/pop-schema/media
+[link-downloads]: https://packagist.org/packages/pop-schema/media
 [link-author]: https://github.com/leoloso
 [link-contributors]: ../../contributors

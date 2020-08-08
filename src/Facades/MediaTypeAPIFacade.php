@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\Facades;
+namespace PoPSchema\Media\Facades;
 
-use PoP\Media\TypeAPIs\MediaTypeAPIInterface;
+use PoPSchema\Media\TypeAPIs\MediaTypeAPIInterface;
 use PoP\Root\Container\ContainerBuilderFactory;
 
 class MediaTypeAPIFacade

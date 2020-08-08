@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\Media\Conditional\Users\FieldResolvers;
+namespace PoPSchema\Media\Conditional\Users\FieldResolvers;
 
-use PoP\Users\TypeResolvers\UserTypeResolver;
-use PoP\Media\TypeResolvers\MediaTypeResolver;
+use PoPSchema\Users\TypeResolvers\UserTypeResolver;
+use PoPSchema\Media\TypeResolvers\MediaTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
@@ -44,7 +44,7 @@ class MediaUserFieldResolver extends AbstractDBDataFieldResolver
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
-        $cmsmediaapi = \PoP\Media\FunctionAPIFactory::getInstance();
+        $cmsmediaapi = \PoPSchema\Media\FunctionAPIFactory::getInstance();
         $media = $resultItem;
         switch ($fieldName) {
             case 'author':
