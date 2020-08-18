@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PoPSchema\Media\TypeDataLoaders;
 
 use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
+use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
+
 // use PoPSchema\CustomPosts\Types\Status;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
@@ -39,7 +41,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
     public function executeQueryIds($query): array
     {
         $options = [
-            'return-type' => \POP_RETURNTYPE_IDS,
+            'return-type' => ReturnTypes::IDS,
         ];
         return (array)$this->executeQuery($query, $options);
     }
