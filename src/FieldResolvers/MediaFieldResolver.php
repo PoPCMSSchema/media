@@ -137,6 +137,9 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
             case 'src':
             case 'width':
             case 'height':
+                /**
+                 * @var MediaDeviceEnum
+                 */
                 $mediaDeviceEnum = $instanceManager->getInstance(MediaDeviceEnum::class);
                 return array_merge(
                     $schemaFieldArgs,
