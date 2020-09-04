@@ -11,6 +11,10 @@ class MediaTypeAPIFacade
 {
     public static function getInstance(): MediaTypeAPIInterface
     {
-        return ContainerBuilderFactory::getInstance()->get('media_type_api');
+        /**
+         * @var MediaTypeAPIInterface
+         */
+        $service = ContainerBuilderFactory::getInstance()->get('media_type_api');
+        return $service;
     }
 }
