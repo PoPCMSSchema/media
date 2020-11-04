@@ -94,7 +94,7 @@ class MediaFieldResolver extends AbstractDBDataFieldResolver
     /**
      * Get parameter "size" based on its value, or the one for "device"
      *
-     * @param array $fieldArgs
+     * @param array<string, mixed> $fieldArgs
      * @return array
      */
     protected function obtainImageSizeFromParameters(array $fieldArgs = []): ?string
