@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Media\Conditional\Users\FieldResolvers;
+namespace PoPSchema\Media\ConditionalOnComponent\Users\FieldResolvers;
 
 use PoPSchema\Users\TypeResolvers\UserTypeResolver;
 use PoPSchema\Media\TypeResolvers\MediaTypeResolver;
