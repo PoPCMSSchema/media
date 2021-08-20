@@ -10,8 +10,7 @@ use PoP\Hooks\HooksAPIInterface;
 use PoP\LooseContracts\NameResolverInterface;
 use PoPSchema\Media\TypeAPIs\MediaTypeAPIInterface;
 use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
-
-// use PoPSchema\CustomPosts\Types\Status;
+use PoPSchema\SchemaCommons\Constants\QueryOptions;
 
 class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
 {
@@ -40,7 +39,6 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
     {
         return [
             'include' => $ids,
-            'custompost-types' => 'attachment',
         ];
     }
 
@@ -52,7 +50,7 @@ class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
     public function executeQueryIds($query): array
     {
         $options = [
-            'return-type' => ReturnTypes::IDS,
+            QueryOptions::RETURN_TYPE => ReturnTypes::IDS,
         ];
         return (array)$this->executeQuery($query, $options);
     }
