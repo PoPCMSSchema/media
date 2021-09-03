@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Media\TypeDataLoaders;
+namespace PoPSchema\Media\RelationalTypeDataLoaders\Object;
 
 use PoP\ComponentModel\Instances\InstanceManagerInterface;
-use PoP\ComponentModel\TypeDataLoaders\AbstractTypeQueryableDataLoader;
+use PoP\ComponentModel\RelationalTypeDataLoaders\Object\AbstractObjectTypeQueryableDataLoader;
 use PoP\Hooks\HooksAPIInterface;
 use PoP\LooseContracts\NameResolverInterface;
 use PoPSchema\Media\TypeAPIs\MediaTypeAPIInterface;
 use PoPSchema\SchemaCommons\DataLoading\ReturnTypes;
 use PoPSchema\SchemaCommons\Constants\QueryOptions;
 
-class MediaTypeDataLoader extends AbstractTypeQueryableDataLoader
+class MediaTypeDataLoader extends AbstractObjectTypeQueryableDataLoader
 {
     public function __construct(
         HooksAPIInterface $hooksAPI,
