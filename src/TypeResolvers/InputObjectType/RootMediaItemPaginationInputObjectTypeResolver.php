@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Media\TypeResolvers\InputObjectType;
+namespace PoPCMSSchema\Media\TypeResolvers\InputObjectType;
 
 use PoP\Root\App;
-use PoPSchema\Media\Component;
-use PoPSchema\Media\ComponentConfiguration;
-use PoPSchema\SchemaCommons\TypeResolvers\InputObjectType\PaginationInputObjectTypeResolver;
+use PoPCMSSchema\Media\Component;
+use PoPCMSSchema\Media\ComponentConfiguration;
+use PoPCMSSchema\SchemaCommons\TypeResolvers\InputObjectType\PaginationInputObjectTypeResolver;
 
 class RootMediaItemPaginationInputObjectTypeResolver extends PaginationInputObjectTypeResolver
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Media\ModuleProcessors;
+namespace PoPCMSSchema\Media\ModuleProcessors;
 
-use PoPSchema\Media\ModuleProcessors\FormInputs\FilterInputModuleProcessor;
-use PoPSchema\SchemaCommons\ModuleProcessors\AbstractFilterInputContainerModuleProcessor;
-use PoPSchema\SchemaCommons\ModuleProcessors\FormInputs\CommonFilterInputModuleProcessor;
-use PoPSchema\SchemaCommons\ModuleProcessors\FormInputs\CommonFilterMultipleInputModuleProcessor;
+use PoPCMSSchema\Media\ModuleProcessors\FormInputs\FilterInputModuleProcessor;
+use PoPCMSSchema\SchemaCommons\ModuleProcessors\AbstractFilterInputContainerModuleProcessor;
+use PoPCMSSchema\SchemaCommons\ModuleProcessors\FormInputs\CommonFilterInputModuleProcessor;
+use PoPCMSSchema\SchemaCommons\ModuleProcessors\FormInputs\CommonFilterMultipleInputModuleProcessor;
 
 class MediaFilterInputContainerModuleProcessor extends AbstractFilterInputContainerModuleProcessor
 {
