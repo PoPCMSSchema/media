@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\Media\TypeResolvers\InputObjectType;
 
+use PoP\ComponentModel\TypeResolvers\InputTypeResolverInterface;
 use PoP\ComponentModel\FilterInputs\FilterInputInterface;
 use PoP\ComponentModel\Schema\SchemaTypeModifiers;
 use PoP\ComponentModel\TypeResolvers\ScalarType\StringScalarTypeResolver;
@@ -25,6 +26,7 @@ abstract class AbstractMediaItemsFilterInputObjectTypeResolver extends AbstractO
     }
     final protected function getDateQueryInputObjectTypeResolver(): DateQueryInputObjectTypeResolver
     {
+        /** @var DateQueryInputObjectTypeResolver */
         return $this->dateQueryInputObjectTypeResolver ??= $this->instanceManager->getInstance(DateQueryInputObjectTypeResolver::class);
     }
     final public function setStringScalarTypeResolver(StringScalarTypeResolver $stringScalarTypeResolver): void
@@ -33,6 +35,7 @@ abstract class AbstractMediaItemsFilterInputObjectTypeResolver extends AbstractO
     }
     final protected function getStringScalarTypeResolver(): StringScalarTypeResolver
     {
+        /** @var StringScalarTypeResolver */
         return $this->stringScalarTypeResolver ??= $this->instanceManager->getInstance(StringScalarTypeResolver::class);
     }
     final public function setMimeTypesFilterInput(MimeTypesFilterInput $mimeTypesFilterInput): void
@@ -41,6 +44,7 @@ abstract class AbstractMediaItemsFilterInputObjectTypeResolver extends AbstractO
     }
     final protected function getMimeTypesFilterInput(): MimeTypesFilterInput
     {
+        /** @var MimeTypesFilterInput */
         return $this->mimeTypesFilterInput ??= $this->instanceManager->getInstance(MimeTypesFilterInput::class);
     }
     final public function setSearchFilterInput(SearchFilterInput $seachFilterInput): void
@@ -49,9 +53,13 @@ abstract class AbstractMediaItemsFilterInputObjectTypeResolver extends AbstractO
     }
     final protected function getSearchFilterInput(): SearchFilterInput
     {
+        /** @var SearchFilterInput */
         return $this->seachFilterInput ??= $this->instanceManager->getInstance(SearchFilterInput::class);
     }
 
+    /**
+     * @return array<string, InputTypeResolverInterface>
+     */
     public function getInputFieldNameTypeResolvers(): array
     {
         return array_merge(

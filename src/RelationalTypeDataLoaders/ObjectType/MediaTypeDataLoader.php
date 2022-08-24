@@ -19,6 +19,7 @@ class MediaTypeDataLoader extends AbstractObjectTypeQueryableDataLoader
     }
     final protected function getMediaTypeAPI(): MediaTypeAPIInterface
     {
+        /** @var MediaTypeAPIInterface */
         return $this->mediaTypeAPI ??= $this->instanceManager->getInstance(MediaTypeAPIInterface::class);
     }
 
@@ -33,7 +34,12 @@ class MediaTypeDataLoader extends AbstractObjectTypeQueryableDataLoader
         ];
     }
 
-    public function executeQuery($query, array $options = []): array
+    /**
+     * @return mixed[]
+     * @param array<string,mixed> $query
+     * @param array<string,mixed> $options
+     */
+    public function executeQuery(array $query, array $options = []): array
     {
         return $this->getMediaTypeAPI()->getMediaItems($query, $options);
     }
